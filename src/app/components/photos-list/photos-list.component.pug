@@ -1,0 +1,3 @@
+ul.photos-list
+  li.photos-list__item(*ngFor="let item of photosList;trackBy:trackingFunction")
+    app-photos-list-item([item]="item")

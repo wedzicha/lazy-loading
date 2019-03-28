@@ -1,0 +1,19 @@
+@import "../../../template/core/core"
+
+.photos-list
+	display: flex
+	flex-wrap: wrap
+	align-items: stretch
+
+	&__item
+		display: flex
+		align-items: stretch
+		flex: 1 0 100%
+
+		+smm
+			flex: 1 0 50%
+			max-width: 50%
+
+		+mdm
+			flex: 1 0 33%
+			max-width: 33%

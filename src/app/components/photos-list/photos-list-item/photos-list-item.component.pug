@@ -1,0 +1,21 @@
+.photos-list-item
+  .photos-list-item__id
+    span {{ item.id }}
+
+  .photos-list-item__block.photos-list-item__block--image
+    span Images:
+    .photos-list-item__thumb([ngClass]='{ "photos-list-item__thumb--loading": isImageLoading }')
+      img.image(
+        [@fadeIn],
+        [src]="item.thumbnailUrl",
+        appImageLoader, (lodadComplete)="onImageLoad()"
+        )
+
+  .photos-list-item__block.photos-list-item__block--background
+    span Background:
+    .photos-list-item__thumb([ngClass]='{ "photos-list-item__thumb--loading": isImageLoading }')
+      .background-block(appImageLoader, [imageURL]="item.thumbnailUrl", (lodadComplete)="onImageLoad()", [@fadeIn], )
+
+  .photos-list-item__title
+    p {{ item.title }}
+      em {{ item.albumId }}

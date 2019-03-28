@@ -1,0 +1,73 @@
+@import "../../../../template/core/core"
+
+%thumb-size
+	min-width: 150px
+	min-height: 150px
+
+\:host
+	display: flex
+	align-items: stretch
+	width: 100%
+
+.photos-list-item
+	background: $c-white
+	padding: 0 24px
+	text-align: center
+	flex: 1 0 100%
+
+	&__id
+		padding: 24px 0
+		max-width: 50px
+
+	&__title
+		padding: 24px 0
+
+		p
+			font-weight: 700
+
+	&__block
+		display: flex
+		justify-content: space-between
+		align-items: center
+
+		span
+			font-weight: 700
+			display: block
+			margin: 0 0 16px
+
+	&__thumb
+		@extend %thumb-size
+		display: flex
+		align-items: center
+		justify-content: center
+		position: relative
+
+		&--loading
+			img
+				opacity: 0
+
+			&::after
+				content: ""
+				animation: rotate360Deg 0.6s infinite
+				position: absolute
+				width: 40px
+				max-width: 40px
+				height: 40px
+				max-height: 40px
+				display: block
+				border: 2px solid $c-preloader
+				border-top-color: transparent
+				border-radius: 50%
+
+.background-block
+	transition: all 1s
+	@extend %thumb-size
+
+@keyframes rotate360Deg
+	0%
+		transform: rotate(0)
+
+	100%
+		transform: rotate(360deg)
+
+
